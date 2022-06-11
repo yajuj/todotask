@@ -1,13 +1,130 @@
-body {
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500&family=Roboto:wght@300;400&display=swap');
+
+
+*{
+  box-sizing: border-box;
+  padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: 'Roboto';
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body{
+  background-color: #f8f9fa;
+}
+header {
+  background-color: #9775fa;
+  font-family: sans-serif;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+.container {
+  max-width: 500px;
+  margin: 20px auto 0px auto;
+  padding: 20px;
+  background-color: #f8f9fa;
+  box-shadow: 0px 20px 40px 0 rgba(0, 0, 0, 0.2);
+}
+.controls > input {
+  padding: 10px;
+  width: 100%;
+  border: 1px solid #9775fa;
+  border-radius: 3px;
+}
+.controls > input:focus {
+  outline: none;
+}
+.controls  {
+  text-align: end;
+}
+.controls > button {
+  padding: 10px;
+  margin-left: auto;
+  cursor: pointer;
+  border:none;
+  background-color: #e9ecef;
+  margin-top: 6px;
+  border-radius: 5px;
+  color: #6e7174;
+}
+.controls > button:hover {
+  background-color: #9775fa;
+  color: white;
+}
+.notes-container {
+  border-top: #ced4da solid 1px;
+  margin: 10px 0;
+  max-height: calc(100vh - 250px);
+  overflow-y: scroll;
+}
+
+h3{
+  text-transform: uppercase;
+  color: #6e7174;
+}
+
+.todo{
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 24px;
+  word-wrap: break-word;
+  word-break: break-all;
+  border-bottom: 1px solid #ced4da;
+}
+
+#check {
+  display: none;
+}
+
+.checkbox {
+  display: flex;
+  width: 50px;
+  height: 50px;
+  border: 2px solid #9775fa ;
+  border-radius: 50%;
+  transform: translate(-30%, 0);
+  justify-content: center;
+  align-items: center;
+}
+.icon{
+  display: none;
+  color:#9775fa;
+}
+
+#check:checked + .checkbox .icon{
+  display: block;
+}
+
+.sort {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.sort .sort_item {
+  padding: 2px 5px;
+  color: #6e7174;
+  cursor: pointer;
+}
+
+.remove-btn{
+  font-size: 32px;
+  cursor: pointer;
+}
+
+.sort .active {
+  border: 1px solid #6e7174;
+  border-radius: 3px;
+}
+
+.notes-container::-webkit-scrollbar {
+  display: none;
+}
+ 
+/* Скрываем scrollbar для IE, Edge и Firefox */
+.notes-container {
+  -ms-overflow-style: none;  /* IE и Edge */
+  scrollbar-width: none;  /* Firefox */
 }

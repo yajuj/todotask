@@ -1,24 +1,33 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { ReactHTMLElement } from 'react';
 import './App.css';
+import ListTodos from './componetns/ListTodos';
+import SelectMode from './componetns/SelectMode';
+import TodoForm from './componetns/TodoForm';
+import { useTodosContext } from './context/todo-context';
+import { Todo } from './types/todo';
 
 function App() {
+  const { todos, filteredTodos, mode } = useTodosContext();
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='app'>
+      <header>TODOS</header>
+      <div className='container'>
+        <TodoForm />
+        <>
+          {mode === 'all' ? (
+            <ListTodos todos={todos} />
+          ) : (
+            <ListTodos todos={filteredTodos} />
+          )}
+        </>
+        <div className='sort'>
+          <div className='sort_item '>{`${filteredTodos.length || 'no'} item${
+            filteredTodos.length > 1 || filteredTodos.length === 0 ? 's' : ''
+          } left.`}</div>
+          <SelectMode />
+        </div>
+      </div>
     </div>
   );
 }
