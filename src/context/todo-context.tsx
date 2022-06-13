@@ -27,8 +27,7 @@ const TodoContext: React.FC<TodoContextProps> = ({ children }) => {
 
   const addTodo = (todo: Todo) => {
     if (!todo.body.trim()) return;
-    console.log('sadas');
-
+    
     setTodos(prevState => [todo, ...prevState]);
   };
 
